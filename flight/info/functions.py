@@ -28,24 +28,24 @@ def scrap_data(name: str) -> dict:
     try:
         sunrise = driver.find_element(
             By.XPATH, "/html/body/div/div/div/div[2]/div[2]/div[1]/div[1]/h4/sunrise"
-        )
+        ).text
         sunset = driver.find_element(
             By.XPATH, "/html/body/div/div/div/div[2]/div[2]/div[1]/div[2]/h4/sunset"
-        )
+        ).text
     except:
-        sunrise = "Sem info"
-        sunset = "Sem info"
+        sunrise = ""
+        sunset = ""
 
     try:
         metar = driver.find_element(
             By.XPATH, "/html/body/div/div/div/div[2]/div[2]/p[2]"
-        )
+        ).text
         tarf = driver.find_element(
             By.XPATH, "/html/body/div/div/div/div[2]/div[2]/p[3]"
-        )
+        ).text
     except:
-        sunrise = "Sem info"
-        sunset = "Sem info"
+        metar = ""
+        tarf = ""
 
     try:
         div = driver.find_element(By.XPATH, "/html/body/div/div/div/div[2]/div[2]")
@@ -60,10 +60,10 @@ def scrap_data(name: str) -> dict:
         links_info.append({"text": date.text, "link": date.get_attribute("href")})
 
     context = {
-        "sunrise": sunrise.text,
-        "sunset": sunset.text,
-        "metar": metar.text,
-        "tarf": tarf.text,
+        "sunrise": sunrise,
+        "sunset": sunset,
+        "metar": metar,
+        "tarf": tarf,
         "links": links_info,
     }
 
