@@ -4,6 +4,9 @@
 ### Clone o repositório:
 `git clone git@github.com:josevenzke/flight-info.git`
 
+### Acesse o repositório:
+`cd flight-info/`
+
 ### Crie um ambiente virtual da sua forma preferida
 ## E certifique-se de ter o ChromeDriver instalado
 
